@@ -1,7 +1,18 @@
 'use client';
 
-import { Box, Heading, Button, Container, HStack, Input, Table } from '@chakra-ui/react';
-import { AddCircle } from 'iconsax-reactjs';
+import Header from '@/components/header';
+import { Box, Button, Container, HStack, Input, Table, Menu, Avatar, Portal, chakra, Switch } from '@chakra-ui/react';
+import {
+  AddCircle,
+  ArrowCircleLeft2,
+  ArrowDown2,
+  Calendar,
+  ExportCurve,
+  Link1,
+  Notification,
+  Sort,
+} from 'iconsax-reactjs';
+import Image from 'next/image';
 
 const items = [
   { id: 1, name: 'Laptop', category: 'Electronics', price: 999.99 },
@@ -13,53 +24,87 @@ const items = [
 
 export default function TodoPage() {
   return (
-    <Box p={8} ml='280px'>
-      <Container maxW='container.xl'>
-        <Box bg={'gray.50'} p={4} borderRadius='lg' mb={6}>
-          <HStack justify='space-between' align='center'>
-            <Heading size='lg'>Todo List</Heading>
-            <Button>
-              <AddCircle size='32' color='#d9e3f0' />
+    <Box ml='280px' bgColor={'#F7F7F7'} minH={'100vh'}>
+      <Header />
+      <Container maxW='90%' mx={'auto'} mt={8} bgColor={'white'} p={6} borderRadius='10px'>
+        <HStack justifyContent={'space-between'} w={'full'}>
+          <HStack gap={8}>
+            <Box border={1} borderColor={'#CDD6E9'} borderStyle={'solid'} p={2} borderRadius='full'>
+              <ArrowCircleLeft2 size='32' color='#464B50' />
+            </Box>
+            <chakra.span color={'#1A1C1E'} fontWeight={'bold'} fontSize={'30px'}>
+              Afdeling Kwaliteit
+            </chakra.span>
+          </HStack>
+          <HStack gap={4}>
+            <Box
+              bg='#F7F7F7'
+              borderRadius='10px'
+              border={1}
+              display={'flex'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              borderColor={'#CDD6E9'}
+              borderStyle={'solid'}
+              p={2}
+              w={'50px'}
+              h={'50px'}
+            >
+              <Switch.Root colorPalette={'gray'}>
+                <Switch.HiddenInput />
+                <Switch.Control color={'#E1E0E1'} />
+              </Switch.Root>
+            </Box>
+            <Button
+              bg='#F7F7F7'
+              borderRadius='10px'
+              border={1}
+              borderColor={'#CDD6E9'}
+              borderStyle={'solid'}
+              p={2}
+              w={'50px'}
+              h={'50px'}
+            >
+              <Sort size='32' color='#292D32' />
+            </Button>
+            <Button
+              bg='#F7F7F7'
+              borderRadius='10px'
+              border={1}
+              borderColor={'#CDD6E9'}
+              borderStyle={'solid'}
+              p={2}
+              w={'50px'}
+              h={'50px'}
+            >
+              <Calendar size='32' color='#292D32' />
+            </Button>
+            <Button
+              bg='#41245F'
+              borderRadius='10px'
+              fontSize={'16px'}
+              fontWeight={'medium'}
+              color={'white'}
+              p={6}
+              gap={2}
+            >
+              <ExportCurve size='32' color='#ffffff' />
+              Export xlsx
+            </Button>
+            <Button
+              bg='#75C5C1'
+              borderRadius='10px'
+              fontSize={'16px'}
+              fontWeight={'medium'}
+              color={'white'}
+              p={6}
+              gap={2}
+            >
+              <AddCircle size='32' color='#ffffff' />
               Add Task
             </Button>
           </HStack>
-        </Box>
-
-        <HStack gap={4} mb={6}>
-          <Input placeholder='Search tasks...' />
-          {/* <Menu>
-            <MenuButton as={Button}>
-              Filter
-            </MenuButton>
-            <MenuList>
-              <MenuItem>All Tasks</MenuItem>
-              <MenuItem>To Do</MenuItem>
-              <MenuItem>In Progress</MenuItem>
-              <MenuItem>Complete</MenuItem>
-            </MenuList>
-          </Menu> */}
         </HStack>
-
-        <Box bg={'white'} borderRadius='lg' boxShadow='sm' overflow='hidden'>
-          <Table.Root size='sm' striped>
-            <Table.Header>
-              <Table.Row>
-                <Table.ColumnHeader>Product</Table.ColumnHeader>
-                <Table.ColumnHeader>Category</Table.ColumnHeader>
-                <Table.ColumnHeader textAlign='end'>Price</Table.ColumnHeader>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {items.map((item) => (
-                <Table.Row key={item.id}>
-                  <Table.Cell>{item.name}</Table.Cell>
-                  <Table.Cell>{item.category}</Table.Cell>
-                  <Table.Cell textAlign='end'>{item.price}</Table.Cell>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table.Root>
-        </Box>
       </Container>
     </Box>
   );

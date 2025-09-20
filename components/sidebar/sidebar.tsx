@@ -45,8 +45,9 @@ export function Sidebar() {
                 justifyContent={'flex-start'}
                 gap={4}
                 borderRadius={'10px'}
-                px={6}
+                px={4}
                 asChild
+                fontWeight={'600'}
               >
                 <Link href={item.path}>
                   <item.icon size='32' color='#7988A9' />
@@ -69,6 +70,7 @@ export function Sidebar() {
                         borderRadius={'10px'}
                         px={6}
                         asChild
+                        fontWeight={'500'}
                       >
                         <Link href={subItem.path}>{subItem.name}</Link>
                       </Button>
