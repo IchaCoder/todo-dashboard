@@ -3,12 +3,15 @@
 import { Box, Heading, Text, Button, VStack } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 
-export default function Home() {
+export default function NotFound() {
   const router = useRouter();
 
   return (
-    <Box h='100vh' p={8} ml='280px' display='flex' alignItems='center' justifyContent='center' bg={'gray.50'} px={4}>
+    <Box h='100vh' display='flex' alignItems='center' justifyContent='center' bg={'gray.50'} px={4}>
       <VStack gap={6} textAlign='center'>
+        <Heading size='4xl' bgGradient='linear(to-r, blue.400, purple.500)' bgClip='text'>
+          404
+        </Heading>
         <Heading size='xl'>Page Not Available</Heading>
         <Text fontSize='lg' color='gray.500'>
           This section is currently under development. Please check back later!
