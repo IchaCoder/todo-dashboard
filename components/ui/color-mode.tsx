@@ -10,7 +10,16 @@ import { LuMoon, LuSun } from 'react-icons/lu';
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
-  return <ThemeProvider attribute='class' defaultTheme='light' disableTransitionOnChange {...props} />;
+  return (
+    <ThemeProvider
+      attribute='class'
+      defaultTheme='light'
+      disableTransitionOnChange
+      enableSystem={false}
+      forcedTheme='light'
+      {...props}
+    />
+  );
 }
 
 export type ColorMode = 'light' | 'dark';
