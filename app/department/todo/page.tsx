@@ -12,7 +12,6 @@ import TodoTableView from '@/components/todo/todo-table-view';
 import TodoGridView from '@/components/todo/todo-grid-view';
 import { TodoItemProps } from '@/components/todo/todo-item-card';
 
-// Priority definition moved to a separate object for reusability
 export const priority = {
   medium: {
     name: 'Medium',
