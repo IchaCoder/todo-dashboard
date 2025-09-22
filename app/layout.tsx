@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning={true}>
       <body suppressHydrationWarning={true}>
         <Provider>
           <Box display={'grid'} gridTemplateColumns={'280px 1fr'}>
