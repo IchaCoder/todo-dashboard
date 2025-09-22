@@ -29,7 +29,7 @@ export default function TodoHeader() {
             p={2}
             w={'auto'}
             h={'50px'}
-            px={4}
+            px={1}
           >
             <Switch id='dark-mode' label='Dark Mode' />
           </Box>
