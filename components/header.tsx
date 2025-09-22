@@ -105,7 +105,7 @@ const Header = () => {
           </Box>
           <Menu.Root positioning={{ placement: 'right-end' }}>
             <Menu.Trigger rounded='full' focusRing='outside'>
-              <Button variant='ghost' _hover={{ bg: '#F7F7F7' }} size='xs'>
+              <Button variant='ghost' _hover={{ bg: '#F7F7F7' }} asChild size='xs'>
                 <ArrowDown2 size='32' color='#6C7278' />
               </Button>
             </Menu.Trigger>
