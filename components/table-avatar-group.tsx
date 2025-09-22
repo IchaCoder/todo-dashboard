@@ -1,15 +1,22 @@
+import { users } from '@/utils/data';
 import { Avatar, AvatarGroup, Text } from '@chakra-ui/react';
 
-const assigneeImages = ['/images/ass1.png', '/images/ass2.png'];
+type TableAvatarProps = {
+  assignees: string[]; // Array of user IDs
+};
 
-const TableAvatar = () => {
+const TableAvatar = ({ assignees }: TableAvatarProps) => {
+  const assigneesData =
+    assignees?.length > 2
+      ? users?.slice(0, 2).filter((user) => assignees?.includes(user.id))
+      : users?.filter((user) => assignees?.includes(user.id));
   return (
     <AvatarGroup gap='0' spaceX='-3' size='xs'>
-      {assigneeImages.length > 0 ? (
-        assigneeImages.map((src, index) => (
+      {assigneesData.length > 0 ? (
+        assigneesData.map((user, index) => (
           <Avatar.Root key={index}>
-            <Avatar.Fallback name={`Assignee ${index + 1}`} />
-            <Avatar.Image src={src} />
+            <Avatar.Fallback name={user.name} />
+            {/* <Avatar.Image src={user.image} /> */}
           </Avatar.Root>
         ))
       ) : (
@@ -17,9 +24,9 @@ const TableAvatar = () => {
           No Assignee
         </Text>
       )}
-      {assigneeImages.length > 2 && (
+      {assignees?.length > 2 && (
         <Avatar.Root variant='solid'>
-          <Avatar.Fallback>+{assigneeImages.length - 2}</Avatar.Fallback>
+          <Avatar.Fallback>+{assignees?.length - 2}</Avatar.Fallback>
         </Avatar.Root>
       )}
     </AvatarGroup>
