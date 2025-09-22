@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Provider } from '@/components/ui/provider';
 import { Sidebar } from '@/components/sidebar/sidebar';
+import { Box } from '@chakra-ui/react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,10 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <Provider>
-          <Sidebar />
-          {children}
+          <Box display={'grid'} gridTemplateColumns={'280px 1fr'}>
+            <Sidebar />
+            {children}
+          </Box>
         </Provider>
       </body>
     </html>

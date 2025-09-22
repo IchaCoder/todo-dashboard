@@ -11,18 +11,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <Box
-      as='nav'
-      pos='fixed'
-      top='0'
-      left='0'
-      h='100vh'
-      w='280px'
-      bg={'white'}
-      borderRightWidth='1px'
-      py={5}
-      overflow={'auto'}
-    >
+    <Box as='nav' bg={'white'} borderRightWidth='1px' py={5} overflow={'auto'}>
       {/* Logo Section */}
       <Flex align='center' mb={8} pl={6} pr={1} justifyContent={'space-between'}>
         <Image src='/logo.png' alt='Logo' width={150} height={80} />
